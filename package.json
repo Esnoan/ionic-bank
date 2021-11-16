@@ -1,0 +1,27 @@
+{
+  "name": "@ionic-bank/main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "front": "npm start -w @ionic-bank/app",
+    "app": "npm run ionic -w @ionic-bank/app",
+    "back": "npm start -w @ionic-bank/back",
+    "build-front": "npm run build -w @ionic-bank/app",
+    "build-back": "npm run build -w @ionic-bank/back",
+    "test-front": "npm test -w @ionic-bank/app",
+    "test-back": "npm test -w @ionic-bank/back"
+  },
+  "keywords": [],
+  "author": "@Esnoan - Andres Urbano A.",
+  "license": "ISC",
+  "workspaces": [
+    "app",
+    "back"
+  ],
+  "devDependencies": {
+    "typescript": "~4.2.4",
+    "ts-node": "~8.3.0",
+    "@types/node": "^12.11.1"
+  }
+}
