@@ -1,12 +1,10 @@
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-
 import Account, { IAccount } from '../models/Account';
 import { IUser } from '../models/User';
+import { randomNumber } from '../utils/randomNumber';
 
 export const createAccount = async (user: IUser): Promise<IAccount> => {
   const account = new Account({
-    number: makeRandomId(),
+    number: randomNumber(),
     owner: user._id,
   });
 
@@ -25,13 +23,4 @@ export const listAccounts = async (user: any): Promise<IAccount[]> => {
   } catch (error) {
     throw error;
   }
-};
-
-const makeRandomId = () => {
-  let result = '';
-  const characters = '0123456789';
-  for (let i = 0; i < 16; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return result;
 };
