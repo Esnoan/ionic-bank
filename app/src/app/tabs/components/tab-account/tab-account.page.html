@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Accounts
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Accounts</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <ion-label>My accounts</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-button class="ion-float-right" (click)="createOwnAccount()">
+          Open new
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item *ngFor="let account of accounts">
+      <ion-label>{{account.number}}</ion-label>
+      <ion-button slot="end" color="tertiary">
+        Details
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid class="separator">
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <ion-label>Third party accounts</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-button class="ion-float-right" (click)="createThirdPartyAccount()">
+          new
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item *ngFor="let account of thirdPartyAccounts">
+      <ion-label>{{account.alias}} - {{account.number}}</ion-label>
+      <ion-button slot="end" color="tertiary">
+        Details
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>

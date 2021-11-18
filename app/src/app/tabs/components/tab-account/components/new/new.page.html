@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>New Third Party Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="submit()" [formGroup]="credentials">
+    <ion-item lines="full">
+      <ion-label position="floating">Alias</ion-label>
+      <ion-input type="text" formControlName="alias"></ion-input>
+    </ion-item>
+
+    <div *ngIf="(alias.dirty || alias.touched) && alias.errors" class="errors">
+      <span *ngIf="alias.errors?.required">alias is required</span>
+      <span *ngIf="alias.errors?.minlength">alias needs to be 6 characters</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Bank</ion-label>
+      <ion-input type="text" formControlName="bank"></ion-input>
+    </ion-item>
+
+    <div *ngIf="(bank.dirty || bank.touched) && bank.errors" class="errors">
+      <span *ngIf="bank.errors?.required">bank is required</span>
+      <span *ngIf="bank.errors?.minlength">bank needs to be 6 characters</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Account Number</ion-label>
+      <ion-input type="text" formControlName="accountNumber"></ion-input>
+    </ion-item>
+
+    <div *ngIf="(accountNumber.dirty || accountNumber.touched) && accountNumber.errors" class="errors">
+      <span *ngIf="accountNumber.errors?.required">Account Number is required</span>
+      <span *ngIf="accountNumber.errors?.minlength">Account Number needs to be 6 characters</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Holder</ion-label>
+      <ion-input type="text" formControlName="holder"></ion-input>
+    </ion-item>
+
+    <div *ngIf="(holder.dirty || holder.touched) && holder.errors" class="errors">
+      <span *ngIf="holder.errors?.required">holder is required</span>
+      <span *ngIf="holder.errors?.minlength">holder needs to be 6 characters</span>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Currency</ion-label>
+      <ion-input type="text" formControlName="currency"></ion-input>
+    </ion-item>
+
+    <div *ngIf="(currency.dirty || currency.touched) && currency.errors" class="errors">
+      <span *ngIf="currency.errors?.required">currency is required</span>
+      <span *ngIf="currency.errors?.minlength">currency needs to be 3 characters</span>
+    </div>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" [disabled]="!credentials.valid">Create</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
